@@ -1,0 +1,53 @@
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Form from "react-bootstrap/Form";
+import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios';
+
+function AddPostForm(props) {
+    const { user } = useAuth0();
+
+    const handleCreatePost = async (e) => {
+        e.preventDefault();
+
+        const newPost = {
+            postAouthr: user.name,
+            postTitle: e.target.titlePost.value,
+            postContent: e.target.ContentPost.value,
+            postImge: e.target.imgUrl.value
+        }
+        await axios.post(`https://message-postgres.herokuapp.com/Post`, newPost);
+        props.getPostCommint();
+        props.handleClose();
+    };
+
+    return (
+        <div>
+            <Modal show={props.show} onHide={() => props.handleClose()}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add New Post</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form onSubmit={handleCreatePost}>
+                        <fieldset>
+                            <Form.Group className="mb-4">
+                                <Form.Label>Title Post</Form.Label>
+                                <Form.Control id="titlePost" />
+                                <Form.Label>Image</Form.Label>
+                                <Form.Control id="imgUrl" />
+                                <Form.Label>Content</Form.Label>
+                                <Form.Control id="ContentPost" />
+                            </Form.Group>
+                            <Button className="admin-btn" type="submit">
+                                Submit
+                            </Button>
+                        </fieldset>
+                    </Form>
+                </Modal.Body>
+            </Modal>
+        </div>
+    )
+}
+
+export default AddPostForm;
