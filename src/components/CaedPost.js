@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import AddCommentForm from './AddCommentForm';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -7,7 +6,7 @@ function CaedPost(props) {
     const { user, isAuthenticated } = useAuth0();
     return (
         <div>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '90%' }}>
                 <Card.Text>{props.post.postAouthr}</Card.Text>
                 <Card.Img variant="top" src={props.post.postImge} />
                 <Card.Body>
@@ -15,12 +14,13 @@ function CaedPost(props) {
                     <Card.Text>
                         {props.post.postContent}
                     </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <hr />
                 </Card.Body>
                 {isAuthenticated &&
                     <AddCommentForm
-                        postId={props.post.id}
-                        name={user.name} />
+                        commentPost={props.post}
+                        name={user.name}
+                        getPostCommint={props.getPostCommint} />
                 }
                 {!isAuthenticated &&
                     <p>Pls Login To Can Comment</p>

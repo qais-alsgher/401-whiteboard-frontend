@@ -4,27 +4,33 @@ import axios from 'axios';
 import Post from './components/Post';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
+import Container from 'react-bootstrap/Container';
 
 function App() {
 
-  const [posts, setPosts] = useState([]);
+  const [postsAndComment, setPostsAndComment] = useState([]);
   const [showPosts, setShowPosts] = useState(false);
 
-  const getPosts = async () => {
-    const allPosts = await axios.get(`https://message-postgres.herokuapp.com/post`);
-    setPosts(allPosts.data.post);
+  const getPostCommint = async () => {
+    const allPostsAndComment = await axios.get(`https://message-postgres.herokuapp.com/PostCommint`);
+    setPostsAndComment(allPostsAndComment.data);
     setShowPosts(true);
   };
 
   useEffect(() => {
-    getPosts();
+    getPostCommint();
   }, []);
 
   return (
     <div className="App">
-      <Header />
-      <Post posts={posts} />
-
+      <Container>
+        <Header getPostCommint={getPostCommint} />
+        <Post
+          posts={postsAndComment}
+          getPostCommint={getPostCommint}
+          className="d-flex justify-content-center"
+        />
+      </Container>
     </div>
   );
 }

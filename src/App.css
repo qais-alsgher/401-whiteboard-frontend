@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+/* .post{
+  s
+} */
+
+.postCard{
+justify-content: center!important;
+}
+
+.btnt{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  text-decoration: none;
+}
+.btnt:hover{
+  color: #777 !important;
+}
+
+.login{
+  
+  float:right!important;
+  background-color:#61dafb!important;
+}
+
+.login:hover{
+  color: #777 !important;
+  background-color:#76d8f3!important;
+}
