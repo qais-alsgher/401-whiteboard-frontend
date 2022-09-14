@@ -25,11 +25,13 @@ function App() {
     <div className="App">
       <Container>
         <Header getPostCommint={getPostCommint} />
-        <Post
-          posts={postsAndComment}
-          getPostCommint={getPostCommint}
-          className="d-flex justify-content-center"
-        />
+        {showPosts &&
+          <Post
+            posts={postsAndComment}
+            getPostCommint={getPostCommint}
+            className="d-flex justify-content-center"
+          />
+        }
       </Container>
     </div>
   );
