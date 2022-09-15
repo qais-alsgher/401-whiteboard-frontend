@@ -39,7 +39,7 @@ function AddPostForm(props) {
                                 <Form.Label>Content</Form.Label>
                                 <Form.Control id="ContentPost" />
                             </Form.Group>
-                            <Button className="admin-btn" type="submit">
+                            <Button className="btn  rounded-pill login" type="submit">
                                 Submit
                             </Button>
                         </fieldset>

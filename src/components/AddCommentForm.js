@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import CommentForPost from './CommentForPost';
+import { MdSend } from "react-icons/md";
 
 function AddCommentForm(props) {
 
@@ -35,13 +36,17 @@ function AddCommentForm(props) {
                     )
                 })
             }
-            <form onSubmit={handleCreateComment}>
+            <form onSubmit={handleCreateComment} className="formComent">
                 <input type="text"
                     name="comment"
                     onChange={handleChange}
                     value={content}
-                    placeholder='Add Comment' />
-                <button onSubmit={handleCreateComment}>Submit</button>
+                    placeholder='Add Comment'
+                />
+                <button onSubmit={handleCreateComment}>
+                    <MdSend />
+                </button>
+
             </form>
         </div>
     )

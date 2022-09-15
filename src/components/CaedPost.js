@@ -6,11 +6,11 @@ function CaedPost(props) {
     const { user, isAuthenticated } = useAuth0();
     return (
         <div>
-            <Card style={{ width: '100%', margin: "20PX" }}>
-                <Card.Text>{props.post.postAouthr}</Card.Text>
+            <Card style={{ width: '100%', margin: "20PX" }} className="text-post">
+                <Card.Text >{props.post.postAouthr}</Card.Text>
+                <Card.Title >{props.post.postTitle}</Card.Title>
                 <Card.Img variant="top" src={props.post.postImge} />
                 <Card.Body>
-                    <Card.Title>{props.post.postTitle}</Card.Title>
                     <Card.Text>
                         {props.post.postContent}
                     </Card.Text>

@@ -55,12 +55,53 @@ justify-content: center!important;
 }
 
 .login{
-  
+  color: black!important;
   float:right!important;
   background-color:#61dafb!important;
 }
 
 .login:hover{
-  color: #777 !important;
+  color: #eee !important;
   background-color:#76d8f3!important;
+}
+
+.formComent{
+  display:flex;
+  height: 2rem;
+  align-items: center;
+}
+
+.formComent input[type="text"]{
+  flex: 1;
+}
+.formComent button{
+  width: 40px!important;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  
+}
+.formComent button{
+  background: #76d8f3;
+}
+
+.text-post{
+  text-align: start!important;
+  padding: 20px;
+}
+
+.coment-post p{
+  padding-left: 20px;
+  background-color:#aaa2a2 ;
+  flex: 1;
+}
+
+.comment-row{
+  display:flex;
+  margin-left: 20px;
+}
+
+.row-poenter{
+  width: 20px;
+  height: 20px;
 }
