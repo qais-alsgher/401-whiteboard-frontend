@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import CommentForPost from './CommentForPost';
+import { MdSend } from "react-icons/md";
 
 function AddCommentForm(props) {
 
@@ -15,19 +16,19 @@ function AddCommentForm(props) {
         e.preventDefault();
         console.log(content);
         const newComment = {
-            commintAuther: props.name,
-            commintContent: content,
+            commentAuther: props.name,
+            commentContent: content,
             postId: props.commentPost.id
         }
 
-        await axios.post(`https://message-postgres.herokuapp.com/commint`, newComment);
-        props.getPostCommint();
+        await axios.post(`https://message-postgres.herokuapp.com/comment`, newComment);
+        props.getPostComment();
         setContent('');
     };
     return (
         <div>
             {
-                props.commentPost.commints.map((ele, index) => {
+                props.commentPost.comments.map((ele, index) => {
                     return (
                         <div key={index}>
                             < CommentForPost comment={ele} />
@@ -35,13 +36,16 @@ function AddCommentForm(props) {
                     )
                 })
             }
-            <form onSubmit={handleCreateComment}>
+            <form onSubmit={handleCreateComment} className="formComent">
                 <input type="text"
-                    name="comment"
                     onChange={handleChange}
                     value={content}
-                    placeholder='Add Comment' />
-                <button onSubmit={handleCreateComment}>Submit</button>
+                    placeholder='Add Comment'
+                />
+                <button onSubmit={handleCreateComment}>
+                    <MdSend />
+                </button>
+
             </form>
         </div>
     )

@@ -18,20 +18,20 @@ function AddPostForm(props) {
             postImge: e.target.imgUrl.value
         }
         await axios.post(`https://message-postgres.herokuapp.com/Post`, newPost);
-        props.getPostCommint();
+        props.getPostComment();
         props.handleClose();
     };
 
     return (
-        <div>
+        <div style={{ "color": "red" }}>
             <Modal show={props.show} onHide={() => props.handleClose()}>
-                <Modal.Header closeButton>
+                <Modal.Header className='formAddPost' closeButton>
                     <Modal.Title>Add New Post</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='formAddPost'>
                     <Form onSubmit={handleCreatePost}>
                         <fieldset>
-                            <Form.Group className="mb-4">
+                            <Form.Group className="mb-4 form-feld-post">
                                 <Form.Label>Title Post</Form.Label>
                                 <Form.Control id="titlePost" />
                                 <Form.Label>Image</Form.Label>
@@ -39,7 +39,7 @@ function AddPostForm(props) {
                                 <Form.Label>Content</Form.Label>
                                 <Form.Control id="ContentPost" />
                             </Form.Group>
-                            <Button className="admin-btn" type="submit">
+                            <Button className="btn  rounded-pill login" type="submit">
                                 Submit
                             </Button>
                         </fieldset>

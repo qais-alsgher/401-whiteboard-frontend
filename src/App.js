@@ -11,27 +11,28 @@ function App() {
   const [postsAndComment, setPostsAndComment] = useState([]);
   const [showPosts, setShowPosts] = useState(false);
 
-  const getPostCommint = async () => {
-    const allPostsAndComment = await axios.get(`https://message-postgres.herokuapp.com/PostCommint`);
+  const getPostComment = async () => {
+    const allPostsAndComment = await axios.get(`https://message-postgres.herokuapp.com/PostComment`);
     setPostsAndComment(allPostsAndComment.data);
     setShowPosts(true);
   };
 
   useEffect(() => {
-    getPostCommint();
+    getPostComment();
   }, []);
 
   return (
     <div className="App">
+      <Header getPostComment={getPostComment} />
       <Container>
-        <Header getPostCommint={getPostCommint} />
-    {showPosts &&
-        <Post
-          posts={postsAndComment}
-          getPostCommint={getPostCommint}
-          className="d-flex justify-content-center"
-        />
-    }
+        {showPosts &&
+          <Post
+            posts={postsAndComment}
+            getPostComment={getPostComment}
+            className="d-flex justify-content-center"
+          />
+        }
+
       </Container>
     </div>
   );
