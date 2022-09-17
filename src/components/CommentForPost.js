@@ -3,10 +3,10 @@ import { BsArrowReturnRight } from "react-icons/bs";
 function CommentForPost(props) {
     return (
         <div className='coment-post'>
-            <h6>{props.comment.commintAuther}:</h6>
+            <h6>{props.comment.commentAuther}:</h6>
             <div className='comment-row'>
                 <BsArrowReturnRight className='row-poenter' />
-                <p>{props.comment.commintContent}</p>
+                <p>{props.comment.commentContent}</p>
             </div>
         </div>
     )

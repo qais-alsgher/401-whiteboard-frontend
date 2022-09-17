@@ -8,7 +8,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { useState } from 'react';
 import AddPostForm from './components/AddPostForm';
 import PageNotAuth from './components/PageNotAuth';
-import './App.css';
+import SolveProblems from './image/SolveProblems.jpg';
 function Header(props) {
     const { isAuthenticated } = useAuth0();
     const [show, setShow] = useState(false);
@@ -17,10 +17,10 @@ function Header(props) {
 
 
     return (
-        <div>
-            <Navbar bg="light" expand="lg">
-                <Container>
-                    <Navbar.Brand href="#home">Solve-Problem</Navbar.Brand>
+        <div className="sticky-top" >
+            <Navbar expand="lg" className='navbar'>
+                <Container >
+                    <Navbar.Brand href="#home"><img src={SolveProblems} className="logo-nav" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
@@ -41,20 +41,22 @@ function Header(props) {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            {isAuthenticated &&
+            {
+                isAuthenticated &&
                 <AddPostForm
                     handleClose={handleClose}
                     show={show}
                     setShow={setShow}
-                    getPostCommint={props.getPostCommint}
+                    getPostComment={props.getPostComment}
                 />
             }
-            {!isAuthenticated &&
+            {
+                !isAuthenticated &&
                 <PageNotAuth
                     handleClose={handleClose}
                     show={show}
                     setShow={setShow}
-                    getPostCommint={props.getPostCommint}
+                    getPostComment={props.getPostComment}
                 />
             }
         </div >
