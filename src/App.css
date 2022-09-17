@@ -264,7 +264,7 @@ cursor: pointer;
 .post-name button:hover{
   transition-duration: 0.5s;
   transform: rotate(1turn);
-  color: var(--color-black)!important;
+  color: red!important;
   cursor: pointer;
 }
 

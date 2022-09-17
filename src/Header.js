@@ -10,7 +10,7 @@ import AddPostForm from './components/AddPostForm';
 import PageNotAuth from './components/PageNotAuth';
 import SolveProblems from './image/SolveProblems.jpg';
 function Header(props) {
-    const { isAuthenticated, user } = useAuth0();
+    const { isAuthenticated } = useAuth0();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
