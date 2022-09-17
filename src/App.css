@@ -45,7 +45,6 @@
 *{
 padding: 0;
 margin: 0;
-color:var(--color-text)!important;
 }
 
 :root{
@@ -56,8 +55,11 @@ color:var(--color-text)!important;
 }
 body{
   background-color: var(--color-black)!important;
+  color: var(--color-text);
 }
-
+.all-modal{
+  color: var(--color-text);
+}
 /* syle navbar */
 .navbar{
 background-color: var(--color-blue)!important;
@@ -103,19 +105,21 @@ justify-content: center!important;
 /* style post */
 .post{
   text-align: start!important;
-  /* padding: 20px; */
   margin: 20px 0!important;
   background-color: var(--color-blue)!important;
+  color:var(--color-text)
 }
 
 .post img{
-  width: 100%!important;
-  height: 350px!important;
-  object-fit: cover!important;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
 }
 .post-name{
+  flex: 1;
   padding-left: 10px;
 }
+
 .post-text{
   padding-left:15px ;
 }
@@ -124,6 +128,17 @@ justify-content: center!important;
   padding-bottom: 0!important;
 }
 
+.imge-owner-post{
+  width: 40px!important;
+  height: 40px!important;
+  border-radius: 50%;
+}
+.owner-post-row{
+display: flex;
+align-items: center;
+margin: 15px 0;
+padding-left: 10px;
+}
 
 /* style comment */
 
@@ -135,15 +150,19 @@ justify-content: center!important;
   display:flex;
   margin-left: 20px;
 }
+.coment-post{
+margin-left: 16px;
+line-break: anywhere;
+}
 
 .coment-post p{
-  padding-left: 20px;
+  padding-left: 5px;
   flex: 1;
 }
 
 .row-poenter-comment{
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 22px;
 }
 
 .formComent button{
@@ -188,6 +207,42 @@ margin-bottom: 5px!important;
   justify-content: flex-end;
   padding-right:16px ;
 }
+.icon-hiden:hover{
+  cursor: pointer;
+  color:var(--color-black);
+}
+
+
+.comment-owner{
+  display: flex;
+  align-items:flex-end;
+}
+
+.imge-comment{
+width: 40px!important;
+height: 40px!important;
+border-radius: 50%;
+}
+
+.edit-comment, .delete-comment{
+width: 20px;
+height: 30px;
+}
+
+.delete-comment{
+  width: 20px;
+  height: 30px;
+}
+.delete-comment:hover{
+color: red!important;
+cursor: pointer;
+}
+
+.edit-comment:hover{
+  color:var(--color-black);
+  cursor: pointer;
+}
+
 
 /* style form add post */
 
@@ -210,6 +265,17 @@ margin-bottom: 5px!important;
   transition-duration: 0.5s;
   transform: rotate(1turn);
   color: var(--color-black)!important;
+  cursor: pointer;
+}
+
+.edit-post-icon{
+  width: 20px;
+  height: 30px;
+}
+
+.edit-post-icon:hover{
+  color:var(--color-black);
+  cursor: pointer;
 }
 
 /* style not authorize modale */

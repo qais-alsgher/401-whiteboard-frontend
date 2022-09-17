@@ -10,7 +10,7 @@ import AddPostForm from './components/AddPostForm';
 import PageNotAuth from './components/PageNotAuth';
 import SolveProblems from './image/SolveProblems.jpg';
 function Header(props) {
-    const { isAuthenticated } = useAuth0();
+    const { isAuthenticated, user } = useAuth0();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -25,7 +25,6 @@ function Header(props) {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <button onClick={handleShow} className="btnt">Add Post</button>
-
                         </Nav>
                         <Nav className=" d-flex justify-content-end">
                             {!isAuthenticated &&

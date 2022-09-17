@@ -2,36 +2,32 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from "react-bootstrap/Form";
-import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
 
-function AddPostForm(props) {
-    const { user } = useAuth0();
+function UpdatePost(props) {
 
-    const handleCreatePost = async (e) => {
+    const handleUpdatePost = async (e) => {
         e.preventDefault();
+        console.log(e.target.titlePost.value);
 
-        const newPost = {
-            postAouthr: user.name,
+        const editPost = {
             postTitle: e.target.titlePost.value,
             postContent: e.target.ContentPost.value,
             postImge: e.target.imgUrl.value,
-            aouthrImage: user.picture
         }
 
-        await axios.post(`https://message-postgres.herokuapp.com/Post`, newPost);
+        await axios.put(`https://message-postgres.herokuapp.com/post/${props.id}`, editPost);
         props.getPostComment();
         props.handleClose();
-    };
-
+    }
     return (
         <div >
             <Modal show={props.show} onHide={() => props.handleClose()} className="all-modal">
                 <Modal.Header className='formAddPost' closeButton>
-                    <Modal.Title>Add New Post</Modal.Title>
+                    <Modal.Title>Edit Post</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className='formAddPost'>
-                    <Form onSubmit={handleCreatePost}>
+                    <Form onSubmit={handleUpdatePost}>
                         <fieldset>
                             <Form.Group className="mb-4 form-feld-post">
                                 <Form.Label>Title Post</Form.Label>
@@ -41,7 +37,7 @@ function AddPostForm(props) {
                                 <Form.Label>Content</Form.Label>
                                 <Form.Control id="ContentPost" />
                             </Form.Group>
-                            <Button className="btn  rounded-pill login" type="submit">
+                            <Button className="btn  rounded-pill login" onSubmit={handleUpdatePost} type="submit" >
                                 Submit
                             </Button>
                         </fieldset>
@@ -52,4 +48,4 @@ function AddPostForm(props) {
     )
 }
 
-export default AddPostForm;
+export default UpdatePost;

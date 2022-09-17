@@ -7,7 +7,7 @@ function PageNotAuth(props) {
         <div>
 
 
-            <Modal show={props.show} onHide={props.handleClose} animation={false}>
+            <Modal show={props.show} onHide={props.handleClose} animation={false} className="all-modal">
                 <Modal.Header className='no-auth' closeButton>
                     <Modal.Title>welcome to solve problem website</Modal.Title>
                 </Modal.Header>
