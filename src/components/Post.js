@@ -6,14 +6,15 @@ import NotAutToDelete from './NotAutToDelete';
 
 function Post(props) {
     const { user } = useAuth0();
-    const [showNotAD, setShowNotAD] = useState(false)
+    const [showNotAD, setShowNotAD] = useState(false);
+    const [owner, setOwner] = useState("")
     const handledelete = async (postAouthr, id) => {
         if (user.name === postAouthr) {
-
             await axios.delete(`https://message-postgres.herokuapp.com/post/${id}`);
             props.getPostComment();
         } else {
-            setShowNotAD(true)
+            setOwner(postAouthr);
+            setShowNotAD(true);
         }
     }
     const handleClose = () => {
@@ -35,7 +36,8 @@ function Post(props) {
             }
             <NotAutToDelete
                 show={showNotAD}
-                handleClose={handleClose} />
+                handleClose={handleClose}
+                owner={owner} />
         </div>
     )
 }

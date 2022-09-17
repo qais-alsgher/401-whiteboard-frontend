@@ -18,7 +18,8 @@ function AddCommentForm(props) {
         const newComment = {
             commentAuther: props.name,
             commentContent: content,
-            postId: props.commentPost.id
+            postId: props.commentPost.id,
+            autherCommentImage: props.picture
         }
 
         await axios.post(`https://message-postgres.herokuapp.com/comment`, newComment);
@@ -31,7 +32,10 @@ function AddCommentForm(props) {
                 props.commentPost.comments.map((ele, index) => {
                     return (
                         <div key={index}>
-                            < CommentForPost comment={ele} />
+                            < CommentForPost
+                                comment={ele}
+                                getPostComment={props.getPostComment}
+                            />
                         </div>
                     )
                 })

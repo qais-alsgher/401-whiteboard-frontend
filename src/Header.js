@@ -25,7 +25,6 @@ function Header(props) {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <button onClick={handleShow} className="btnt">Add Post</button>
-
                         </Nav>
                         <Nav className=" d-flex justify-content-end">
                             {!isAuthenticated &&
