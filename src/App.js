@@ -32,6 +32,7 @@ function App() {
             className="d-flex justify-content-center"
           />
         }
+
       </Container>
     </div>
   );

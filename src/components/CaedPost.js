@@ -17,11 +17,11 @@ function CaedPost(props) {
 
     return (
         <div>
-
             <Card className="post">
 
                 <Card.Text className='post-name'>{props.post.postAouthr}<button onClick={() => { props.handleDelete(props.post.postAouthr, props.post.id) }}>X</button></Card.Text>
                 <Card.Title className='post-text' >{props.post.postTitle}</Card.Title>
+
                 <Card.Img variant="top" src={props.post.postImge} />
                 <Card.Body className='body-card-post'>
                     <Card.Text className='post-text'>
