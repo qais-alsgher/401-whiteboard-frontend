@@ -20,7 +20,7 @@ function Header(props) {
         <div className="sticky-top" >
             <Navbar expand="lg" className='navbar'>
                 <Container >
-                    <Navbar.Brand href="#home"><img src={SolveProblems} className="logo-nav" /></Navbar.Brand>
+                    <Navbar.Brand href="#home"><img src={SolveProblems} className="logo-nav" alt='logo-solve-problems' /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
